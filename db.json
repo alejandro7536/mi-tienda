@@ -1,0 +1,55 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nombre": "Debora",
+      "apellidos": "Guardado"
+    },
+    {
+      "id": 2,
+      "nombre": "Luis Alejandro",
+      "apellidos": "Alas Gonzalez"
+    },
+    {
+      "nombre": "Alejandro",
+      "apellidos": "Alas",
+      "id": 3
+    }
+  ],
+  "ordenes": [
+    {
+      "id": 1,
+      "idProducto": 1,
+      "idCliente": 1,
+      "cantidad": 1,
+      "fecha": "10/10/2020"
+    },
+    {
+      "id": 2,
+      "idProducto": 1,
+      "idCliente": 1,
+      "cantidad": 3,
+      "fecha": "10/10/2020"
+    }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Cocacola",
+      "descripcion": "Una bevida multinacional que es la mejor del mundo",
+      "precio": "10"
+    },
+    {
+      "nombre": "Galletas dian",
+      "descripcion": "Galletas picnick",
+      "precio": 0.15,
+      "id": 2
+    },
+    {
+      "nombre": "Computadora",
+      "descripcion": "PC gaming",
+      "precio": 1000,
+      "id": 3
+    }
+  ]
+}
