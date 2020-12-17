@@ -18,18 +18,18 @@
   ],
   "ordenes": [
     {
-      "id": 1,
-      "idProducto": 1,
+      "idProducto": "1",
       "idCliente": 1,
-      "cantidad": 1,
-      "fecha": "10/10/2020"
+      "cantidad": 20,
+      "fecha": "2020-12-17T07:11:05.610Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "idProducto": 1,
-      "idCliente": 1,
-      "cantidad": 3,
-      "fecha": "10/10/2020"
+      "idProducto": "2",
+      "idCliente": "2",
+      "cantidad": 5,
+      "fecha": "2020-12-17T07:45:48.762Z",
+      "id": 2
     }
   ],
   "productos": [

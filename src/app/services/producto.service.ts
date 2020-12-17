@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class ProductoService {
 
   private url = `${environment.baseUrl}/productos`;
-  public lastId: number
+  public lastId: number;
 
   constructor(
     private http: HttpClient

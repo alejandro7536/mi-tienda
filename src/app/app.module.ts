@@ -11,11 +11,17 @@ import { ClientesModule } from './pages/clientes/clientes.module';
 import { ProductosModule } from './pages/productos/productos.module';
 import { OrdenesModule } from './pages/ordenes/ordenes.module';
 
+// Toast R
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    Page404Component
+    Page404Component,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,9 @@ import { OrdenesModule } from './pages/ordenes/ordenes.module';
     ReactiveFormsModule,
     ClientesModule,
     ProductosModule,
-    OrdenesModule
+    OrdenesModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

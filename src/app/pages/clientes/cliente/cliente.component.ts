@@ -26,5 +26,8 @@ export class ClienteComponent implements OnInit {
     );
   }
 
+  mostrarCliente(id) {
+    this.router.navigate(['/clientes/mostrar', id]);
+  }
 
 }

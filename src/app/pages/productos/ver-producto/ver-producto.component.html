@@ -1,4 +1,25 @@
-<div *ngIf="producto" >
-    <h1 class="text-4xl font-bold text-gray-700">{{producto.nombre}}</h1>
-    <h2 class="text-xl font-bold text-gray-500 mb-5">{{producto.descripcion}}</h2>
+<button routerLink="/productos" title="Productos"
+    class="mb-5 p-3 cursor-pointer rounded-full hover:bg-gray-200 hover:border-none hover:shadow-xl">
+    <svg class="text-gray-700 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+</button>
+
+<div *ngIf="producto">
+    <div class="md:flex shadow-sm rounded-lg border mx-6 md:mx-auto my-5 max-w-lg md:max-w-2xl h-64">
+        <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6"
+            src="assets/img/producto.jpg" alt="bag">
+        <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
+            <div class="flex items-center">
+                <h2 class="text-xl text-gray-800 font-medium mr-auto">{{producto.nombre}}</h2>
+            </div>
+            <p class="text-sm text-gray-700 mt-4">
+               {{producto.descripcion}}
+            </p>
+            <div class="flex items-center justify-start mt-4 top-auto h-full">
+                <h2 class="text-4xl font-semibold text-gray-700">{{producto.precio | currency}}</h2>
+            </div>
+        </div>
+    </div>
 </div>

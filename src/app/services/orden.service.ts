@@ -15,6 +15,7 @@ import { Producto } from '../interfaces/producto.interface';
 export class OrdenService {
 
   private url = `${environment.baseUrl}/ordenes`;
+  public lastId: number;
 
   constructor(
     private http: HttpClient,
@@ -33,7 +34,6 @@ export class OrdenService {
           }); 
           return orden;
         });
-        console.log(ordenes);
         return ordenes;
       })
     );
@@ -43,7 +43,16 @@ export class OrdenService {
     return this.http.get<Orden>(`${this.url}/${id}`);
   }
 
-  addOrden(orden: Orden) {
+  addOrden(params: any) {
+    let orden: Orden = {...params, fecha: new Date(), id:this.lastId}
     return this.http.post(this.url, orden);
   }
+
+  getIdNuevo() {
+    this.http.get<Orden[]>(this.url).subscribe((ordenes) =>  {
+      this.lastId = ordenes[ordenes.length -1].id + 1;
+      console.log(this.lastId);
+    });
+  }
+
 }

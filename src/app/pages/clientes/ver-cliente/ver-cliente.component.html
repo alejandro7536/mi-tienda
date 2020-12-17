@@ -1,4 +1,106 @@
-<div *ngIf="cliente" >
-    <h1 class="text-4xl font-bold text-gray-700">{{cliente.nombre}}</h1>
-    <h2 class="text-xl font-bold text-gray-500 mb-5">{{cliente.apellidos}}</h2>
+<button routerLink="/clientes" title="Clientes" class="mb-5 p-3 cursor-pointer rounded-full hover:bg-gray-200 hover:border-none hover:shadow-xl">
+    <svg class="text-gray-700 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+</button>
+
+<div *ngIf="cliente"
+    class="bg-white pb-6 w-full justify-center items-center overflow-hidden rounded-lg shadow-sm mx-auto">
+    <div class="relative h-20">
+    </div>
+    <div class="relative shadow mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
+        <img class="object-cover w-full h-full" src="assets\img\profile.png">
+    </div>
+    <div class="mt-16">
+        <h1 class="text-lg text-center text-gray-600  font-semibold">
+            {{cliente.nombre}}
+        </h1>
+        <p class="text-sm text-gray-600 text-center">
+            {{cliente.apellidos}}
+        </p>
+    </div>
 </div>
+
+<div *ngIf="ordenes.length > 0; else noOrdenes">
+    <h3 class="text-gray-700 font-bold mt-5">Ordenes</h3>
+    <div class="flex flex-col my-5">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200" *ngIf="ordenes.length > 0">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    id
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Fecha
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Producto
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Precio
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Cantidad
+                                </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Total
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr *ngFor="let orden of ordenes">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm font-medium text-gray-900">
+                                        {{orden.id}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">
+                                        {{orden.fecha | date: 'dd/MM/yyyy'}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900" *ngIf="orden.producto">
+                                        {{orden.producto.nombre}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900" *ngIf="orden.producto">
+                                        {{orden.producto.precio | currency}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center">
+                                    <div class="text-sm text-gray-900">
+                                        {{orden.cantidad}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center">
+                                    <div class="text-sm text-gray-900">
+                                        {{orden.total | currency}}
+                                    </div>
+                                </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noOrdenes>
+    <h3 class="text-gray-700 font-bold mt-5">Este usuario no tiene ordenes</h3>
+</ng-template>

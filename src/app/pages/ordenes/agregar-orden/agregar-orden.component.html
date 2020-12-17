@@ -1,1 +1,65 @@
-<p>agregar-orden works!</p>
+<h1 class="text-4xl font-bold text-gray-700 mb-5">Agregar Orden</h1>
+<div class="mt-10 sm:mt-0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+
+        <div class="mt-5 md:mt-0 md:col-span-3 w-full">
+            <form [formGroup]="form" (ngSubmit)="guardar()">
+                <div class="shadow-md overflow-hidden sm:rounded-md">
+                    <div class="px-4 py-5 bg-white sm:p-6">
+                        <div class="md:col-span-1 mb-5">
+                            <div class="px-4 sm:px-0">
+                                <h3 class="text-lg font-medium leading-6 text-gray-500">Agregar información de la orden
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="producto" class="block text-sm font-medium text-gray-700">Producto</label>
+                                <select id="producto" name="producto" autocomplete="producto"
+                                    formControlName="idProducto"
+                                    class="block w-full py-3 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option value="0" disabled selected>Seleccione un producto</option>
+                                    <option *ngFor="let prod of productos" [value]="prod.id">{{prod.nombre}}</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="cantidad" class="block text-sm font-medium text-gray-700">
+                                    Cantidad</label>
+                                <input type="number" name="cantidad" id="cantidad" formControlName="cantidad" min="0"
+                                    class="block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="cliente" class="block text-sm font-medium text-gray-700">Cliente</label>
+                                <select id="cliente" name="cliente" autocomplete="cliente" formControlName="idCliente"
+                                    class="block w-full py-3 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    <option value="0" disabled selected>Seleccione un cliente</option>
+                                    <option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nombre}}
+                                        {{cliente.apellidos}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <span class="text-gray-500">Total</span>
+                            <h1 class="text-5xl font-bold text-gray-700">{{total | currency}}</h1>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <button routerLink="/ordenes"
+                            class="border hover:text-gray-700 hover:border-gray-500  focus:shadow-outline focus:outline-none text-gray-500 font-semibold py-2 px-4 rounded-lg"
+                            type="button">
+                            Cancelar
+                        </button>
+                        <button type="submit"
+                            class="ml-3 bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg">
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

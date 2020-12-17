@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClienteService } from '../../../services/cliente.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-agregar-cliente',
@@ -10,12 +11,18 @@ import { Router } from '@angular/router';
 })
 export class AgregarClienteComponent implements OnInit {
 
-  form: FormGroup
+  form: FormGroup;
+  toastOptions = {
+    closeButton: true,
+    progressBar: true,
+    positionClass: 'toast-bottom-right'
+  }
 
   constructor(
     private clienteService: ClienteService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.clienteService.getIdNuevo();
     this.crearformulario();
@@ -37,10 +44,12 @@ export class AgregarClienteComponent implements OnInit {
     if (this.form.valid) {
       this.clienteService.addCliente(this.form.value).subscribe(
         res => {
-          console.log('Se guardo');
+          this.toastr.success('Cliente guardado', 'Success!', this.toastOptions);
           this.router.navigateByUrl('/clientes');
         }
-      )
+      );
+    } else {
+      this.toastr.error('Datos incompletos', 'Error!', this.toastOptions);
     }
   }
 
