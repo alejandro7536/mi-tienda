@@ -39,7 +39,7 @@ export class AgregarOrdenComponent implements OnInit, DoCheck {
     private fb: FormBuilder,
     private toastr: ToastrService
 
-  ) { 
+  ) {
     this.crearFormulario();
     this.ordenService.getIdNuevo();
   }
@@ -48,14 +48,16 @@ export class AgregarOrdenComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
 
     this.total = 0;
-    if(this.form.value.idProducto > 0 && this.form.value.cantidad ){
-      this.total = this.productos[this.form.value.idProducto - 1].precio * this.form.value.cantidad ;
+    if (this.form.value.idProducto > 0 && this.form.value.cantidad) {
+      this.total = this.productos[this.form.value.idProducto - 1].precio * this.form.value.cantidad;
     }
-    
+
   }
 
   ngOnInit(): void {
     this.loading = true;
+
+    // Cargando clientes y productos al mismo tiempo
     combineLatest([
       this.clienteService.getClientes(),
       this.productoService.getProductos()
@@ -66,6 +68,7 @@ export class AgregarOrdenComponent implements OnInit, DoCheck {
     });
   }
 
+  // Creacion del formulario
   crearFormulario() {
     this.form = this.fb.group({
       idProducto: ['0', [Validators.required, Validators.min(1)]],
@@ -75,7 +78,7 @@ export class AgregarOrdenComponent implements OnInit, DoCheck {
   }
 
   guardar() {
-    console.log('Is valid ',this.form.valid);
+    // Veridicar que el form sea valido
     if (this.form.valid) {
       this.ordenService.addOrden(this.form.value).subscribe(
         res => {

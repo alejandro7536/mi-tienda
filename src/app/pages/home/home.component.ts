@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Cálculo de las cantidades de clientes, productos y ordenes
     combineLatest([
       this.clienteService.getClientes(),
       this.productoService.getProductos(),

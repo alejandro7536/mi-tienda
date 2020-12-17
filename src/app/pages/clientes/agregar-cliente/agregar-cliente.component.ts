@@ -31,6 +31,7 @@ export class AgregarClienteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Creacion del formulario
   crearformulario() {
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
@@ -39,8 +40,7 @@ export class AgregarClienteComponent implements OnInit {
   }
 
   guardar() {
-    // console.log(this.form);
-    console.log('Is valid ',this.form.valid);
+    // Veridicar que el form sea valido
     if (this.form.valid) {
       this.clienteService.addCliente(this.form.value).subscribe(
         res => {

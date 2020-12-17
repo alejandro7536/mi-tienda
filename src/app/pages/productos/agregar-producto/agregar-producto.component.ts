@@ -26,11 +26,12 @@ export class AgregarProductoComponent implements OnInit {
   ) {
     this.productoService.getIdNuevo();
     this.crearformulario();
-   }
+  }
 
   ngOnInit(): void {
   }
 
+  // Creacion del formulario
   crearformulario() {
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
@@ -40,13 +41,14 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   guardar() {
+    // Veridicar que el form sea valido
     if (this.form.valid) {
-    this.productoService.addProducto(this.form.value).subscribe(
-      res => {
-        this.toastr.success('Producto guardado', 'Success!', this.toastOptions);
-        this.router.navigateByUrl('/productos');
-      });
-    }else {
+      this.productoService.addProducto(this.form.value).subscribe(
+        res => {
+          this.toastr.success('Producto guardado', 'Success!', this.toastOptions);
+          this.router.navigateByUrl('/productos');
+        });
+    } else {
       this.toastr.error('Datos incompletos', 'Error!', this.toastOptions);
     }
 

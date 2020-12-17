@@ -22,11 +22,14 @@ export class VerProductoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    // Cargar producto por id
     this.productoService.getProducto(this.idProducto).subscribe(
       producto => {
         this.producto = producto;
       },
       error => {
+        // Si no se encuentra producto se manda a la pagina 404
         this.router.navigateByUrl('notfound');
       }
     );

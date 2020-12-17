@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { filter, map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { ClienteService } from '../../../services/cliente.service';
 import { Cliente } from '../../../interfaces/cliente.interface';
@@ -26,6 +26,7 @@ export class VerClienteComponent implements OnInit {
     private router: Router
 
   ) {
+    // Leer el id de la ruta
     this.activatedRouter.params.subscribe(({ id }) => this.idCliente = id);
   }
 
@@ -41,6 +42,7 @@ export class VerClienteComponent implements OnInit {
     this.getOrdersByIdCliente();
   }
 
+  // Obetener las ordenes del cliente mediante su id
   getOrdersByIdCliente() {    
     this.ordenService.getOrdenes().pipe(
       map((ordenes:OrdenCompleta[]) => {

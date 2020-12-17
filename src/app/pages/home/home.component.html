@@ -14,12 +14,13 @@
                 </div>
                 <div class="flex flex-col flex-grow ml-4">
                     <div class="text-sm text-gray-500">Clientes</div>
-                    <div class="font-bold text-lg" *ngIf="totalClientes" >{{totalClientes}}</div>
-              
+                    <div class="font-bold text-lg" *ngIf="totalClientes">{{totalClientes}}</div>
+
                 </div>
-                <button routerLink="/clientes"  class="mr-5 bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg">
+                <button routerLink="/clientes"
+                    class="mr-2 bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">
                     Ver Clientes
-                  </button>
+                </button>
             </div>
         </div>
         <div class="col-span-12 sm:col-span-6 xl:col-span-4">
@@ -35,11 +36,12 @@
                 </div>
                 <div class="flex flex-col flex-grow ml-4">
                     <div class="text-sm text-gray-500">Productos</div>
-                    <div class="font-bold text-lg" *ngIf="totalProductos" >{{totalProductos}}</div>
+                    <div class="font-bold text-lg" *ngIf="totalProductos">{{totalProductos}}</div>
                 </div>
-                <button routerLink="/productos" class="mr-5 bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg">
+                <button routerLink="/productos"
+                    class="mr-2 bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg">
                     Ver Productos
-                  </button>
+                </button>
             </div>
         </div>
         <div class="col-span-12 sm:col-span-6 xl:col-span-4">
@@ -54,14 +56,20 @@
                 </div>
                 <div class="flex flex-col flex-grow ml-4">
                     <div class="text-sm text-gray-500">Ordenes</div>
-                    <div class="font-bold text-lg" *ngIf="totalOrdenes" >{{totalOrdenes}}</div>
+                    <div class="font-bold text-lg" *ngIf="totalOrdenes">{{totalOrdenes}}</div>
                 </div>
-                <button routerLink="/ordenes" class="mr-5 bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg">
-                    Ver
-                  </button>
-                  <button routerLink="/ordenes/agregar" class="mr-5 bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg">
-                    Nueva
-                  </button>
+                <button routerLink="/ordenes"
+                    class="mr-1 bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">
+                    Ver ordenes
+                </button>
+                <button routerLink="/ordenes/agregar" title="Nueva orden"
+                    class="mr-2 bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">
+                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                </button>
             </div>
         </div>
 

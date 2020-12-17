@@ -17,11 +17,12 @@ export class ProductoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    //Cargar listado de productos
     this.productoService.getProductos().subscribe(
       productos => {
         this.productos = productos;
-        console.log(this.productos);
-        
+        // console.log(this.productos);   
       }
     );
   }

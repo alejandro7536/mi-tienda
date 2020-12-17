@@ -14,6 +14,11 @@
       "nombre": "Alejandro",
       "apellidos": "Alas",
       "id": 3
+    },
+    {
+      "nombre": "Miguel",
+      "apellidos": "Cortez",
+      "id": 4
     }
   ],
   "ordenes": [
@@ -30,6 +35,20 @@
       "cantidad": 5,
       "fecha": "2020-12-17T07:45:48.762Z",
       "id": 2
+    },
+    {
+      "idProducto": "3",
+      "idCliente": "2",
+      "cantidad": 2,
+      "fecha": "2020-12-17T11:46:41.887Z",
+      "id": 3
+    },
+    {
+      "idProducto": "4",
+      "idCliente": "4",
+      "cantidad": 40,
+      "fecha": "2020-12-17T14:36:48.210Z",
+      "id": 4
     }
   ],
   "productos": [
@@ -47,9 +66,15 @@
     },
     {
       "nombre": "Computadora",
-      "descripcion": "PC gaming",
+      "descripcion": "Dentro de una misma generación de CPU, estas especificaciones nos dan una idea clara del rendimiento. Esto no funciona, sin embargo, al comparar componentes con fechas de lanzamiento muy dispares, ya que aparte de estas características, subyacen mejoras en la arquitectura de los chips. Por lo general, los modelos más modernos son significativamente más eficiente",
       "precio": 1000,
       "id": 3
+    },
+    {
+      "nombre": "Xbox One Xs pro max",
+      "descripcion": "Xbox +Iphone all in one",
+      "precio": 1999,
+      "id": 4
     }
   ]
 }

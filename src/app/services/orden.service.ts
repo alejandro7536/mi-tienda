@@ -23,13 +23,20 @@ export class OrdenService {
     private productoService: ProductoService
   ) { }
 
+  // Obtener el listado de ordenes
   getOrdenes() {
     return this.http.get<OrdenCompleta[]>(this.url).pipe(
       map((ordenes: any) => {
         ordenes.map((orden: OrdenCompleta) => {
+
+          // Se busca el cliente por el id que esta almacenado en la orden
           this.clienteService.getCliente(orden.idCliente).subscribe((cliente: Cliente) => orden.cliente = cliente);
+
+           // Se busca el cliente por el id que esta almacenado en la orden
           this.productoService.getProducto(orden.idProducto).subscribe((producto: Producto) => {
             orden.producto = producto;
+
+            // Calculo del total
             orden.total = orden.cantidad * orden.producto.precio;
           }); 
           return orden;
@@ -39,15 +46,18 @@ export class OrdenService {
     );
   }
 
+  // Obtener  orden por id
   getOrden(id: number) {
     return this.http.get<Orden>(`${this.url}/${id}`);
   }
 
+  // Agregar orden
   addOrden(params: any) {
     let orden: Orden = {...params, fecha: new Date(), id:this.lastId}
     return this.http.post(this.url, orden);
   }
 
+    // Obetener un nuevo id para asignar a la nueva orden, este se ejecuta al momento de entrar a la pantalla de creación
   getIdNuevo() {
     this.http.get<Orden[]>(this.url).subscribe((ordenes) =>  {
       this.lastId = ordenes[ordenes.length -1].id + 1;

@@ -16,6 +16,8 @@ export class OrdenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // Obtener el listado de ordenes
     this.ordenService.getOrdenes().subscribe(
       ordenes => {
         this.ordenes = ordenes;

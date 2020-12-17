@@ -1,10 +1,17 @@
 <h1 class="text-4xl font-bold text-gray-700 mb-5">Ordenes</h1>
-<button routerLink="/ordenes/agregar" class="mr-5 bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg">Agregar</button>
+<button routerLink="/ordenes/agregar"
+    class="inline-flex items-center mr-5 bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg">
+    <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-width="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+    </svg>Agregar</button>
 <div class="flex flex-col my-5">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200" *ngIf="ordenes.length > 0" >
+                <!-- Inicio tabla de ordenes -->
+                <table class="min-w-full divide-y divide-gray-200" *ngIf="ordenes.length > 0; else noOrders">
                     <thead class="bg-gray-50">
                         <tr>
                             <th scope="col"
@@ -50,17 +57,17 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900" *ngIf="orden.cliente" >
+                                <div class="text-sm text-gray-900" *ngIf="orden.cliente">
                                     {{orden.cliente.nombre}}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900" *ngIf="orden.producto" >
+                                <div class="text-sm text-gray-900" *ngIf="orden.producto">
                                     {{orden.producto.nombre}}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900"  *ngIf="orden.producto" >
+                                <div class="text-sm text-gray-900" *ngIf="orden.producto">
                                     {{orden.producto.precio | currency}}
                                 </div>
                             </td>
@@ -74,12 +81,14 @@
                                     {{orden.total | currency}}
                                 </div>
                             </td>
-
-                            
                         </tr>
-
                     </tbody>
                 </table>
+                <!-- Fin tabla de ordenes -->
+                <ng-template #noOrders>
+                    <h3 class="text-gray-700 font-bold mt-5">No se han registrado Ordenes</h3>
+                </ng-template>
+
             </div>
         </div>
     </div>
