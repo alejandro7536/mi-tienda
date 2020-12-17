@@ -1,16 +1,16 @@
-# Mitienda
+# Mi tienda
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
 
 ## Simular Server
 Debe instalar Json Serve
-'''
+```
 npm install -g json-server
-'''
+```
 Luego ejecutar
-'''
+```
 json-server --watch db.json
-'''
+```
 
 ## Development server
 
